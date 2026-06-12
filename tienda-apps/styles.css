@@ -1,57 +1,178 @@
-body {
+/* Variables de colores globales */
+:root {
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --text-main: #ffffff;
+    --text-secondary: #b3b3b3;
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+}
+
+/* Estilos Generales */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
-    background: #4a148c;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.apps-container {
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 30px;
-    gap: 20px;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.app-card {
-    background: white;
-    width: 280px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+    flex: 1;
 }
 
-.app-card img {
+/* Navbar */
+header {
+    background-color: var(--bg-card);
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box {
+    position: relative;
+    width: 300px;
+}
+
+.search-box input {
     width: 100%;
-    border-radius: 10px;
-}
-
-button {
-    background: #6a1b9a;
+    padding: 10px 15px;
+    padding-right: 45px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    background-color: #2a2a2a;
     color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-button:hover {
-    background: #4a148c;
+.search-box input:focus {
+    border-color: var(--primary-color);
 }
 
-footer {
-    background: #222;
-    color: white;
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+/* Grid de Apps */
+.section-title {
+    margin-bottom: 30px;
+    font-size: 28px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 10px;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjetas de Apps */
+.app-card {
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-50px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+}
+
+.app-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-color);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.app-info h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.app-info p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Botón de descarga */
+.download-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.download-btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.02);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-card);
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 14px;
     margin-top: 40px;
+    border-top: 1px solid #2a2a2a;
 }
